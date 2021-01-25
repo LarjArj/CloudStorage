@@ -1,20 +1,20 @@
-package com.udacity.CloudStorageApplication.models;
+package com.udacity.CloudStorage.models;
 
-public class note {
-    private int noteID;
+public class Note {
+    private Integer noteID;
     private String title;
     private String description;
-    private int userID;
+    private Integer userID;
 
-    public note(int noteId, String title, String description, int userID){
-        this.noteID = noteId;
+    public Note(Integer noteID, String title, String description, int userID){
+        this.noteID = noteID;
         this.title = title;
         this.description = description;
         this.userID = userID;
 
     }
 
-    public void setNoteId(int noteID){ this.noteID = noteID;}
+    public void setNoteID(Integer noteID){ this.noteID = noteID;}
 
     public void setTitle(String title){ this.title = title;}
 
@@ -26,7 +26,7 @@ public class note {
 
     public String getDescription () {return description;}
 
-    public int getUserID() {return userID;}
+    public Integer getUserID() {return userID;}
 
 
 

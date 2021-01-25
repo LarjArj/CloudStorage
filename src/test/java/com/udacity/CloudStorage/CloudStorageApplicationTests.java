@@ -1,4 +1,4 @@
-package com.udacity.CloudStorageApplication;
+package com.udacity.CloudStorage;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

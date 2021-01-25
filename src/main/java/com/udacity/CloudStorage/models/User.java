@@ -1,15 +1,15 @@
-package com.udacity.CloudStorageApplication.models;
+package com.udacity.CloudStorage.models;
 
 public class User {
-    private int userId;
+    private Integer userID;
     private String username;
     private String password;
     private String salt;
     private String firstName;
     private String lastName;
 
-    public User(int userId,String username,String password,String salt, String firstName,String lastName){
-        this.userId = userId;
+    public User(Integer userID,String username,String password,String salt, String firstName,String lastName){
+        this.userID = userID;
         this.username = username;
         this.password = password;
         this.salt = salt;
@@ -18,7 +18,7 @@ public class User {
 
     }
 
-    public void setUserId(int userId){this.userId =userId; }
+    public void setUserID(Integer userId){this.userID =userId; }
 
     public void setUsername(String username){this.username = username;}
 
@@ -30,7 +30,7 @@ public class User {
 
     public void setLastName(String lastName){this.lastName = lastName;}
 
-    public int getUserId(){return userId;}
+    public Integer getUserID(){return userID;}
 
     public String getUsername(){return username;}
 
