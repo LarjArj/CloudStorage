@@ -7,9 +7,11 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Repository;
 
 
 @Mapper
+@Repository
 public interface NoteMapper {
 
     //noteId, String title, String description, int userID)
@@ -19,7 +21,7 @@ public interface NoteMapper {
     int insert(Note note);
 
     @Select("SELECT * FROM NOTES")
-    Note[] getUserNotes();
+    Note[] getUserNotes(Integer userID);
 
     @Select("SELECT * FROM NOTES WHERE noteID = #{noteID}")
     Note getNote(Integer noteID);

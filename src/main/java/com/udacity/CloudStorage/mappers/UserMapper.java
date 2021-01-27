@@ -14,10 +14,10 @@ public interface UserMapper {
     @Select("SELECT * FROM USERS WHERE username = #{username}")
     User getUser(String username);
 
-    @Select("SELECT * FROM USERS WHERE userid = #{userID}")
+    @Select("SELECT * FROM USERS WHERE userID = #{userID}")
     User getUserById(Integer userID);
 
-    @Insert("INSERT INTO USERS (username, password,salt, firstname, lastname) VALUES(#{username}, #{password}, #{salt}, #{firstName}, #{lastName})")
+    @Insert("INSERT INTO USERS (username, password,salt, firstName, lastName) VALUES(#{username}, #{password}, #{salt}, #{firstName}, #{lastName})")
 
     @Options(useGeneratedKeys = true, keyProperty = "userID")
     int insert(User user);
