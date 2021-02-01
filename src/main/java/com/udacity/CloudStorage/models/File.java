@@ -1,4 +1,5 @@
 package com.udacity.CloudStorage.models;
+import com.udacity.CloudStorage.models.FileUploadForm;
 
 
 public class File {
@@ -7,16 +8,18 @@ public class File {
     private String fileName;
     private Integer userID;
     private String fileType; /// .pdf, .jpg, .java
-    private byte[] fileContent;
-    private String fileSize;
+    private byte[] fileData;
+    private long fileSize;
 
 
 
-    public File(Integer fileID, String fileName,String fileType,Integer userID){
+    public File(Integer fileID, String fileName,String fileType,byte[] fileData,long fileSize,Integer userID){
         this.fileID = fileID;
         this.fileName = fileName;
         this.userID = userID;
         this.fileType = fileType;
+        this.fileSize = fileSize;
+        this.fileData = fileData;
 
 
 
@@ -29,7 +32,9 @@ public class File {
 
     public void setFileType(String fileType){this.fileType = fileType;}
 
-    public void setFileContent(byte[] fileContent){this.fileContent = fileContent;}
+    public void setFileContent(byte[] fileContent){this.fileData = fileData;}
+
+    public void setFileSize(Integer fileSize){this.fileSize = fileSize;}
 
     public Integer getUserID(){return userID;}
 
@@ -37,7 +42,14 @@ public class File {
 
     public String getFileName(){return fileName;}
 
-    public byte[] getFileContent(){return fileContent;}
+    public byte[] getFileContent(){return fileData;}
+
+    public long getFileSize(){return fileSize;}
+
+
+
+
+
 
 
 

@@ -1,21 +1,24 @@
 package com.udacity.CloudStorage.mappers;
-import com.udacity.CloudStorage.models.Auth;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Update;
+import com.udacity.CloudStorage.models.userCredential;
+import org.apache.ibatis.annotations.*;
+import org.springframework.boot.autoconfigure.ldap.embedded.EmbeddedLdapProperties;
+import org.springframework.stereotype.Repository;
 
-public interface AuthMapper {
+@Mapper
+@Repository
+public interface CredentialMapper {
 
     @Insert("INSERT INTO CREDENTIALS (url, username, password, userID) " +
             "VALUES(#{url}, #{userName}, #{key}, #{password}, #{userID)")
 
     @Options(useGeneratedKeys = true, keyProperty = "credentialID")
-    int insert(Auth credential);
+    int insert(userCredential credential);
 
     @Select("SELECT * FROM CREDENTIALS WHERE credentialID = #{credentialID}")
-    Auth getCredential(Integer credentialID);
+    userCredential getCredential(Integer credentialID);
+
+    @Select("SELECT * FROM CREDENTIALS WHERE credentialID = #{credentialID}")
+    userCredential [] getAllCredentials(Integer credentialID);
 
     @Delete("DELETE FROM CREDENTIALS WHERE credentialID = #{credentialID}")
     void deleteCredential(Integer credentialID);

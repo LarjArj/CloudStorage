@@ -1,15 +1,15 @@
 package com.udacity.CloudStorage.models;
 
-public class Auth {
-    private Integer authID;
+public class userCredential {
+    private Integer credentialID;
     //private String key;
     private String userName;
     private String password;
     private Integer userID;
     private String URL;
 
-    public Auth(Integer authID, String URL, String userName, String key, String password, Integer userID) {
-        this.authID = authID;
+    public userCredential(Integer credentialID, String URL, String userName, String password, Integer userID) {
+        this.credentialID = credentialID;
         //this.key = key;
         this.userName = userName;
         this.password = password;
@@ -17,7 +17,7 @@ public class Auth {
         this.URL = URL;
     }
 
-    public void setAuthID(Integer credentialID){this.authID = authID;}
+    public void setCredentialID(Integer credentialID){this.credentialID = credentialID;}
 
     public void setUserName(String userName){this.userName = userName;}
 
@@ -27,7 +27,7 @@ public class Auth {
 
     public void setURL(String URL){this.URL=URL;}
 
-    public Integer getAuthID(){return authID;}
+    public Integer getCredentialIDID(){return credentialID;}
 
     public String getUserName(){return userName;}
 

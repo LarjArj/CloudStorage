@@ -6,8 +6,10 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Repository;
 
 @Mapper
+@Repository
 public interface FileMapper {
 
 
@@ -21,7 +23,10 @@ public interface FileMapper {
     File getFile(String fileName);
 
     @Select("SELECT filename FROM FILES WHERE userID = #{userID}")
-    String[] getAllFiles(Integer userID);
+    File[] getAllFiles(Integer userID);
+
+    @Select("SELECT * FROM FILES WHERE fileID = #{fileID}")
+    File getFileBYID(Integer fileID);
 
     @Delete("DELETE FROM FILES WHERE fileName = #{fileName}")
     void delete(String fileName);
