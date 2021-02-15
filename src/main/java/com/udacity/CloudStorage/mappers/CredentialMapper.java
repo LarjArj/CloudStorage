@@ -1,7 +1,6 @@
 package com.udacity.CloudStorage.mappers;
-import com.udacity.CloudStorage.models.userCredential;
+import com.udacity.CloudStorage.models.UserCredential;
 import org.apache.ibatis.annotations.*;
-import org.springframework.boot.autoconfigure.ldap.embedded.EmbeddedLdapProperties;
 import org.springframework.stereotype.Repository;
 
 @Mapper
@@ -12,13 +11,13 @@ public interface CredentialMapper {
             "VALUES(#{url}, #{userName}, #{key}, #{password}, #{userID)")
 
     @Options(useGeneratedKeys = true, keyProperty = "credentialID")
-    int insert(userCredential credential);
+    int insert(UserCredential credential);
 
     @Select("SELECT * FROM CREDENTIALS WHERE credentialID = #{credentialID}")
-    userCredential getCredential(Integer credentialID);
+    UserCredential getCredential(Integer credentialID);
 
     @Select("SELECT * FROM CREDENTIALS WHERE credentialID = #{credentialID}")
-    userCredential [] getAllCredentials(Integer credentialID);
+    UserCredential[] getAllCredentials(Integer credentialID);
 
     @Delete("DELETE FROM CREDENTIALS WHERE credentialID = #{credentialID}")
     void deleteCredential(Integer credentialID);

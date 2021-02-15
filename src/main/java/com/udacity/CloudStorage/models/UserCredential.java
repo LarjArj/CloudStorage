@@ -1,6 +1,6 @@
 package com.udacity.CloudStorage.models;
 
-public class userCredential {
+public class UserCredential {
     private Integer credentialID;
     //private String key;
     private String userName;
@@ -8,7 +8,7 @@ public class userCredential {
     private Integer userID;
     private String URL;
 
-    public userCredential(Integer credentialID, String URL, String userName, String password, Integer userID) {
+    public UserCredential(Integer credentialID, String URL, String userName, String password, Integer userID) {
         this.credentialID = credentialID;
         //this.key = key;
         this.userName = userName;
@@ -27,7 +27,7 @@ public class userCredential {
 
     public void setURL(String URL){this.URL=URL;}
 
-    public Integer getCredentialIDID(){return credentialID;}
+    public Integer getCredentialID(){return credentialID;}
 
     public String getUserName(){return userName;}
 

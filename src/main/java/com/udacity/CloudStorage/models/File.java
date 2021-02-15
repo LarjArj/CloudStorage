@@ -10,8 +10,7 @@ public class File {
     private String fileType; /// .pdf, .jpg, .java
     private byte[] fileData;
     private long fileSize;
-
-
+    //////
 
     public File(Integer fileID, String fileName,String fileType,byte[] fileData,long fileSize,Integer userID){
         this.fileID = fileID;
@@ -32,7 +31,7 @@ public class File {
 
     public void setFileType(String fileType){this.fileType = fileType;}
 
-    public void setFileContent(byte[] fileContent){this.fileData = fileData;}
+    public void setFileContent(byte[] fileData){this.fileData = fileData;}
 
     public void setFileSize(Integer fileSize){this.fileSize = fileSize;}
 

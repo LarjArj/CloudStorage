@@ -1,46 +1,30 @@
 package com.udacity.CloudStorage.controllers;
-import org.springframework.stereotype.Controller;
 
-
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import com.udacity.CloudStorage.models.User;
 import com.udacity.CloudStorage.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import org.springframework.web.bind.annotation.*;
-
-
-@Controller()
-@RequestMapping("/register")
+@Controller
 public class RegistrationController {
+    @Autowired
+    UserService userService;
 
-    private final UserService userService;
-    public RegistrationController(UserService userService) {
-        this.userService = userService;
-
-    }
-
-
-
-    @GetMapping()
-    public String getLoginPage(){
-        return "register";
-
-    }
-
-    @PostMapping()
-    public String registerUser(@ModelAttribute User user,Model model){
-
-
-        if (userService.isUsernameValid(user.getUsername())){
-            model.addAttribute("registraion_successful", true);
+    @PostMapping("/register")
+    public String register(@ModelAttribute("SpringWeb") User currentUser) {
+        if (currentUser == null) {
+            return "redirect:signup";
         }
 
-        else {
-            model.addAttribute("registration_error", "Username already exists");
+        try {
+            userService.CreateUser(currentUser);
+        } catch (Exception e) {
+            return "redirect:signup?error";
         }
 
-        return "string";
+        return "redirect:signup?success";
     }
 
 

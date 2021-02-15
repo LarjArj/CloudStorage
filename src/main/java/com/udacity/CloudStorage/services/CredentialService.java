@@ -1,7 +1,7 @@
 package com.udacity.CloudStorage.services;
 
 import com.udacity.CloudStorage.models.User;
-import com.udacity.CloudStorage.models.userCredential;
+import com.udacity.CloudStorage.models.UserCredential;
 import com.udacity.CloudStorage.mappers.UserMapper;
 import com.udacity.CloudStorage.mappers.CredentialMapper;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class CredentialService {
 
 
     public void addCredential(String username,String password,String URL){
-        credentialMapper.insert(new userCredential(0,URL,username,password,getUserID(username)));
+        credentialMapper.insert(new UserCredential(0,URL,username,password,getUserID(username)));
     }
 
 
@@ -30,7 +30,7 @@ public class CredentialService {
         return userToReturn.getUserID();
     }
 
-    public userCredential getCredential(Integer credentialID){
+    public UserCredential getCredential(Integer credentialID){
         return credentialMapper.getCredential(credentialID);
     }
 
@@ -43,7 +43,7 @@ public class CredentialService {
 
     }
 
-    public userCredential[] getAllCredentials(Integer userCredentialID){
+    public UserCredential[] getAllCredentials(Integer userCredentialID){
         return credentialMapper.getAllCredentials(userCredentialID);
 
 
